@@ -49,12 +49,12 @@
 
           <div class="row">
 
-            <p><%= keys.replace("photos/","") %></p>
+
 
 <% if ( sqs ) { %>
-  <p style="color:green;">Dodano do kolejki SQS.</p>
+  <center><h3><p><%= keys.replace("photos/","") %> add to queue</p>
 <% } else { %>
-  <p style="color:red;">Błąd dodania do kolejki SQS.</p>
+  <center><h3><p><%= keys.replace("photos/","") %> not add to queue</p>
 <% }; %>
 
           </div>
