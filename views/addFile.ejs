@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>AWS Project</title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+
+	<style>
+	body {
+			padding-top: 10px;
+			/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+	}
+	.center-form{
+				margin-left: auto;
+				margin-right: auto;
+				float: none;
+	}
+	</style>
+	<body>
+		<nav class="navbar navbar-default">
+	    <div class="container-fluid">
+	      <div class="navbar-header">
+	        <a class="navbar-brand" href="#">AWS Project</a>
+	      </div>
+	      <ul class="nav navbar-nav">
+	        <li><a class="navbar-brand" href="/">Gallery</a></li>
+	        <li><a class="navbar-brand" href="createform">Add photos to gallery</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+
+		</nav>
+		<div class="container">
+		<section id="section1" class="panel panel-default">
+
+			<div class="panel-heading">
+			<div class="container">
+	    		<h3 class="panel-title">Add file to gallery</h3>
+	    		</div>
+		  	</div>
+	  		<div class="panel-body">
+	  <form action="https://<%=bucket%>.s3.amazonaws.com/" method="POST" id="sign-up-form" class="form-horizontal" enctype="multipart/form-data">
+
+	<div class="container">
+	<% fields.forEach(function(elem){ %>
+	  <input type="hidden" name="<%= elem.name  %>" value="<%=elem.value %>"/>
+		<%}); %>
+
+	<div class="col-xs-5">
+	<div class="form-group">
+    	<label for="exampleInputFile">File input</label>
+    	<input type="file" name="file">
+    	<p class="help-block">File will be send to the bucket <%=bucket%> </p>
+  </div>
+
+
+	</div>
+	</div>
+
+	<div class="container">
+	<div class="col-xs-3">
+	<input type="submit" class="btn  btn-primary btn-block" value="Confirm"/>
+	</div>
+	</div>
+</form>
+	  		</div>
+			<footer class="panel-footer">
+
+			</footer>
+		</section>
+	</div>
+	</body>
+</html>

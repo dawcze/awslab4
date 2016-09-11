@@ -6,12 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Radek Adamus <adamusr@gmail.com> (https://github.com/radamus/)",
+  "author": "Dawid",
   "license": "MIT",
   "dependencies": {
     "webs-weeia": "0.0.2",
     "ejs": "^1.0.0",
     "moment": "^2.5.1",
+    "queuemanager": "^0.2.6",
     "async": "^0.2.10",
     "aws-sdk": "^2.0.0-rc13"
   }

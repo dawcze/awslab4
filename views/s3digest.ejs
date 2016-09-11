@@ -32,49 +32,32 @@
 </head>
 
 <body>
+  <body>
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">AWS Project</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li><a class="navbar-brand" href="">Gallery</a></li>
-        <li><a class="navbar-brand" href="createform">Add photos to gallery</a></li>
-      </ul>
-    </div>
-  </nav>
- <div class="container">
-
-        <div class="row">
-
-<% urlList.forEach(function(elem){ %>
-
-<form action="/s3digest" method="GET">
-  <div class="col-sm-4 col-md-4">
-
-    <div class="thumbnail">
-
-      <img src="<%= elem.url %>" alt="...">
-      <div class="caption">
-            <center><h3><%= elem.name.replace("photos/", "")  %></h3>
-            <input type="hidden" name="keys" value="<%= elem.name %>">
-            <center><input type="submit" class="btn btn-primary" name="change" value="Change">
-      </div>
-
-    </div>
-
-  </div>
-    </form>
-
-                    <%}); %>
-
-
-
-            </div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">AWS Project</a>
         </div>
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="/">Gallery</a></li>
+          <li><a class="navbar-brand" href="createform">Add photos to gallery</a></li>
+        </ul>
+      </div>
+    </nav>
+   <div class="container">
 
-    </div>
+          <div class="row">
+
+            <p><%= keys.replace("photos/","") %></p>
+
+<% if ( sqs ) { %>
+  <p style="color:green;">Dodano do kolejki SQS.</p>
+<% } else { %>
+  <p style="color:red;">Błąd dodania do kolejki SQS.</p>
+<% }; %>
+
+          </div>
+
 </body>
-
 </html>
